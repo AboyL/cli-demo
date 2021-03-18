@@ -19,9 +19,16 @@
     "test": "echo \"Error: run tests from root\" && exit 1"
   },
   "dependencies": {
+    "@babel/core": "^7.13.10",
+    "@babel/preset-env": "^7.13.10",
+    "@babel/preset-react": "^7.12.13",
+    "babel-loader": "^8.2.2",
     "commander": "^7.1.0",
     "fs-extra": "^9.1.0",
+    "html-webpack-plugin": "^5.3.1",
     "inquirer": "^8.0.0",
-    "mustache": "^4.1.0"
+    "mustache": "^4.1.0",
+    "webpack": "^5.26.3",
+    "webpack-dev-server": "^3.11.2"
   }
 }
