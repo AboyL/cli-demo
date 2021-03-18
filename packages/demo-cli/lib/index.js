@@ -4,6 +4,8 @@ const inquirer = require('inquirer');
 const newQuestion = require('./question/new-question')
 const newAction = require('./actions/new-action')
 const startAction = require('./actions/start-action')
+const buildAction = require('./actions/build-action')
+
 
 program
   .version(require('../package.json').version, '-v, --version')
@@ -42,6 +44,18 @@ program
       ...opts,
     }
     startAction(options)
+  })
+
+  program
+  .command('build')
+  .alias('b')
+  .description('build project')
+  .action(async (name, opts, command) => {
+    const options = {
+      name,
+      ...opts,
+    }
+    buildAction(options)
   })
 
 commander.parse(process.argv);

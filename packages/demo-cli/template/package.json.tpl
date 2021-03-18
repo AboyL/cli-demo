@@ -14,7 +14,8 @@
     "web-vitals": "^1.0.1"
   },
   "scripts": {
-    "start": "demo-cli start"
+    "start": "demo-cli start",
+    "build": "demo-cli build"
   },
   "browserslist": {
     "production": [
