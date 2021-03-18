@@ -1,5 +1,6 @@
 const commander = require('commander')
 const program = commander;
+const inquirer = require('inquirer');
 
 program
   .version(require('../package.json').version, '-v, --version')
@@ -18,10 +19,25 @@ program
     'choose template',
     'test'
   )
-  .action((name,options,command) => {
-    console.log(name)
-    console.log(options)
-    console.log(command.opts())
+  .action(async (name, options, command) => {
+    const answers = await inquirer
+      .prompt([
+        {
+          type: 'list',
+          name: 'webpack-version',
+          message: 'choose webpack version',
+          choices: [
+            4,
+            5
+          ],
+        },
+        {
+          type: 'input',
+          name: 'author',
+          message: 'the author of package.json',
+        },
+      ])
+    console.log(JSON.stringify(answers, null, '  '));
   })
 
 commander.parse(process.argv);
