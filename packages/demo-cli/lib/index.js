@@ -1,6 +1,8 @@
 const commander = require('commander')
 const program = commander;
 const inquirer = require('inquirer');
+const newQuestion = require('./question/new-question')
+const { generateTemplate } = require('./generate')
 
 program
   .version(require('../package.json').version, '-v, --version')
@@ -19,25 +21,15 @@ program
     'choose template',
     'test'
   )
-  .action(async (name, options, command) => {
-    const answers = await inquirer
-      .prompt([
-        {
-          type: 'list',
-          name: 'webpack-version',
-          message: 'choose webpack version',
-          choices: [
-            4,
-            5
-          ],
-        },
-        {
-          type: 'input',
-          name: 'author',
-          message: 'the author of package.json',
-        },
-      ])
-    console.log(JSON.stringify(answers, null, '  '));
+  .action(async (name, opts, command) => {
+    const answers = await inquirer.prompt(newQuestion)
+    const options = {
+      name,
+      ...opts,
+      ...answers
+    }
+    console.log(options)
+    generateTemplate(options)
   })
 
 commander.parse(process.argv);
