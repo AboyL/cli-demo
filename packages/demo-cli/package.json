@@ -1,0 +1,21 @@
+{
+  "name": "demo-cli",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "lijunfeng <junfeng.li@hand-china.com>",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "bin": {
+    "demo-cli": "bin/demo-cli"
+  },
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  }
+}
