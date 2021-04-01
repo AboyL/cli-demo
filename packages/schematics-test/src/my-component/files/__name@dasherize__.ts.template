@@ -1,0 +1,6 @@
+export class <%= classify(name) %>Service {
+  constructor() { }
+  start(){
+    console.log('<%= classify(name) %>')
+  }
+}
